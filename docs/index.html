@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>项目视频展示 | 替换成你的项目名</title>
+  <meta name="description" content="一个极简、好看的 GitHub Pages 视频画廊模板，用于展示研究/项目 Demo。" />
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --card: #0f1420;
+      --text: #edf2f7;
+      --muted: #a0aec0;
+      --accent: #60a5fa;
+      --ring: rgba(96,165,250,.45);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 16px 64px; }
+    header { display: grid; gap: 12px; margin-bottom: 22px; }
+    .title { font-size: clamp(28px, 4vw, 38px); font-weight: 800; letter-spacing: .2px; }
+    .subtitle { color: var(--muted); }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0 18px; }
+    .chip { border: 1px solid #223; padding: 6px 10px; border-radius: 999px; color: var(--muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+    .card { background: linear-gradient(180deg, #0f1420, #0b0f19); border: 1px solid #1b2334; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 24px rgba(0,0,0,.25); transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(0,0,0,.35); }
+
+    .vwrap { position: relative; aspect-ratio: 16/9; background: #000; }
+    video { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+    /* 简单的播放提示 */
+    .hint { position: absolute; right: 10px; bottom: 10px; background: rgba(0,0,0,.55); color:#fff; padding: 4px 8px; border-radius: 999px; font-size: 12px; pointer-events: none; }
+
+    .meta { padding: 12px 14px 16px; }
+    .meta h3 { margin: 0 0 6px; font-size: 18px; }
+    .meta p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .links { margin-top: 10px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 10px; border: 1px solid #223; background: #0b1020; color: #dbeafe; }
+    .btn:hover { outline: 2px solid var(--ring); text-decoration: none; }
+
+    footer { margin-top: 36px; color: var(--muted); font-size: 14px; text-align: center; }
+    .small { font-size: 12px; color: var(--muted); }
+
+    /* 响应式微调 */
+    @media (max-width: 420px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">替换成你的项目名（IMAGEdit 等）</div>
+      <div class="subtitle">轻量可插拔的多目标视频编辑 / 研究 Demo 展示。将本文件保存为 <code>docs/index.html</code>，并在仓库 Settings → Pages 启用即可。</div>
+      <div class="toolbar">
+        <span class="chip">🎬 Hover 预览，点击可控播放</span>
+        <span class="chip">🔇 自动静音播放（可点开听声）</span>
+        <span class="chip">⚡ 延迟加载，节省带宽</span>
+      </div>
+    </header>
+
+    <!-- ============ 视频画廊 ============ -->
+    <section class="grid" id="gallery">
+
+      <!-- 卡片示例 1：本地 MP4 / WebM（推荐放在 docs/assets/videos/ 下） -->
+      <article class="card">
+        <div class="vwrap">
+          <video class="vid" muted playsinline loop preload="none" poster="assets/posters/demo1.jpg">
+            <!-- 使用 data-src 懒加载，替换为你的路径：docs/assets/videos/demo1.mp4 / .webm -->
+            <source data-src="assets/videos/demo1.mp4" type="video/mp4" />
+            <source data-src="assets/videos/demo1.webm" type="video/webm" />
+            您的浏览器不支持 HTML5 视频。
+          </video>
+          <div class="hint">Hover 预览 / 点击控制</div>
+        </div>
+        <div class="meta">
+          <h3>多目标编辑：控数量 + 布局 + 类别</h3>
+          <p>复杂场景，多主体，保持身份一致性与时序稳定。</p>
+          <div class="links">
+            <a class="btn" href="assets/videos/demo1.mp4" target="_blank" rel="noopener">在新标签播放 MP4</a>
+            <a class="btn" href="https://github.com/你的用户名/你的仓库" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 卡片示例 2：YouTube/Bilibili（仅在 Pages 站点可用；README 中 <iframe> 会被过滤） -->
+      <article class="card">
+        <div class="vwrap">
+          <!-- 替换下面 src 为你的视频 ID/链接 -->
+          <iframe class="vid" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="meta">
+          <h3>在线视频（YouTube / Bilibili）</h3>
+          <p>将研究 Demo 上传到平台后，这里直接嵌入即可。</p>
+          <div class="links">
+            <a class="btn" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">打开原视频</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 卡片示例 3：更多本地示例 -->
+      <article class="card">
+        <div class="vwrap">
+          <video class="vid" muted playsinline loop preload="none" poster="assets/posters/demo2.jpg">
+            <source data-src="assets/videos/demo2.mp4" type="video/mp4" />
+            <source data-src="assets/videos/demo2.webm" type="video/webm" />
+          </video>
+          <div class="hint">Hover 预览 / 点击控制</div>
+        </div>
+        <div class="meta">
+          <h3>复杂遮挡与快速运动</h3>
+          <p>展示在剧烈运动、拥挤场景下的鲁棒性与边界保真度。</p>
+          <div class="links">
+            <a class="btn" href="assets/videos/demo2.mp4" target="_blank" rel="noopener">在新标签播放 MP4</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 继续复制上面的卡片块，替换 poster 与视频路径即可 -->
+
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> 替换成你的名字 · <a href="../">返回仓库</a></p>
+      <p class="small">将视频放在 <code>docs/assets/videos/</code>，海报图放在 <code>docs/assets/posters/</code>。不要把超大的原始视频直接进 Git，建议压缩并限制到 720p/1080p。</p>
+    </footer>
+  </div>
+
+  <script>
+    // 年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 懒加载 video 源：当卡片进入视口附近时才设置 src
+    const loadVideo = (video) => {
+      const sources = video.querySelectorAll('source[data-src]');
+      sources.forEach(s => { s.src = s.dataset.src; s.removeAttribute('data-src'); });
+      video.load();
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          loadVideo(v);
+          io.unobserve(v);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('video.vid').forEach(v => io.observe(v));
+
+    // hover 自动播放，移开暂停；点击切换播放状态
+    const bindInteraction = (el) => {
+      if (el.tagName.toLowerCase() !== 'video') return; // 忽略 iframe
+      el.addEventListener('mouseenter', () => { el.play().catch(()=>{}); });
+      el.addEventListener('mouseleave', () => { el.pause(); });
+      el.addEventListener('click', () => { if (el.paused) el.play().catch(()=>{}); else el.pause(); });
+    };
+
+    document.querySelectorAll('.vid').forEach(bindInteraction);
+  </script>
+</body>
+</html>
