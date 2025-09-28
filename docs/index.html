@@ -427,6 +427,7 @@
 
 /**************3*******/
 /* Comparison with other methods styles - 扩充布局150px，增大视频 */
+/* Comparison with other methods styles - 修复滑动问题 */
 .comparison-row {
   margin-bottom: 40px;
   width: calc(100% + 500px);
@@ -436,17 +437,11 @@
   box-sizing: border-box;
 }
 
-.comparison-row > div:not(.row-prompt) {
+.comparison-row .method-videos {
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
   align-items: flex-start; /* 确保对齐 */
-}
-
-.comparison-row .method-videos {
-  display: flex;
-  gap: 15px;
-  width: 100%;
 }
 
 .fixed-videos {
@@ -512,6 +507,8 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* 响应式调整 */
 @media (max-width: 1400px) {
   .comparison-row {
     width: calc(100% + 160px);
