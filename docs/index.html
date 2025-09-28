@@ -430,9 +430,9 @@
 /* Comparison with other methods styles - 修复滑动问题 */
 .comparison-row {
   margin-bottom: 40px;
-  width: calc(100% + 500px);
-  margin-left: -250px;
-  margin-right: -2250px;
+  width: calc(100% + 400px);
+  margin-left: -200px;
+  margin-right: -200px;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -480,8 +480,9 @@
 
 .method-video-item {
   text-align: center;
-  flex-shrink: 0; /* 防止视频被压缩 */
-  min-width: 180px; 
+  flex-shrink: 0;
+  min-width: 200px; /* 从180px增加到200px */
+  max-width: 200px; /* 添加最大宽度限制 */
 }
 
 .method-name {
@@ -542,10 +543,7 @@
   }
 }
 /* 每个方法卡片 */
-.method-video-item {
-  flex: 0 0 360px;         /* 固定一列的宽度，避免被压扁；你也可以用 300~420 自行调 */
-  text-align: center;
-}
+
 
 /* 黑色展示框：固定为 16:9，可自调 */
 .video-box {
