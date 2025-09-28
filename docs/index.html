@@ -25,7 +25,7 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
     
     /* Header Section */
-    .header { text-align: center; margin-bottom: 40px; padding: 40px 0; }
+    .header { text-align: center; margin-bottom: 0px; padding: 20px 0; }
     .title { font-size: clamp(28px, 5vw, 42px); font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
     .authors { font-size: 18px; margin-bottom: 10px; color: var(--muted); }
     .affiliations { font-size: 16px; margin-bottom: 10px; color: var(--muted); }
@@ -42,7 +42,13 @@
     .hero { text-align: center; margin-bottom: 50px; }
     .hero-media { background: #000; border-radius: 12px; overflow: hidden; margin-bottom: 15px; max-width: 600px; margin-left: auto; margin-right: auto; }
     .hero video, .hero img { width: 100%; height: auto; display: block; }
-    .tldr { background: linear-gradient(135deg, #fef7cd, #fde68a); padding: 15px 20px; border-radius: 8px; border-left: 4px solid #f59e0b; margin: 20px 0; }
+    .tldr { 
+  background: linear-gradient(135deg, #fffbeb, #fef3c7); /* 更浅的黄色渐变 */
+  padding: 15px 20px; 
+  border-radius: 8px; 
+  border-left: 4px solid #f59e0b; 
+  margin: 20px 0; 
+}
     .tldr strong { color: #92400e; }
 
     /* Content Sections */
@@ -537,6 +543,47 @@
   font-weight: 900; /* 或者 bold */
 }
 /* *************************/
+/* PDF/大图展示样式 */
+.pdf-container {
+  text-align: center;
+  margin: 15px 0; /* 从30px减少到15px，拉近距离 */
+  width: calc(100% + 200px);
+  margin-left: -100px;
+  margin-right: -100px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.method-pdf {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  /* 移除这些造成白边的样式 */
+  /* background: white; */
+  /* border: 1px solid var(--border); */
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .pdf-container {
+    width: calc(100% + 100px);
+    margin-left: -50px;
+    margin-right: -50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pdf-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 10px;
+  }
+}
+
+
+/* *************************/
 
     /* Results Section */
     .comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
@@ -589,7 +636,12 @@
         </div>
       </div>
     </section> -->
-
+    <section class="section">
+      <!-- <h2 class="section-title">Method Overview</h2> -->
+      <div class="pdf-container">
+        <img src="./asset/1.png" alt="Method Overview Diagram" class="method-pdf">
+      </div>
+    </section>
     <!-- Abstract -->
     <section class="section">
       <h2 class="section-title">Abstract</h2>
@@ -638,7 +690,7 @@
    <!-- Video Results -->
 <!-- the third block -->
 <section class="section">
-  <h2 class="section-title">Comparison with other video editing methods</h2>
+  <h2 class="section-title">Comparison with Other Video Editing Methods</h2>
 
   <div class="comparison-row">
     <div class="method-videos">
